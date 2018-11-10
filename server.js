@@ -23,7 +23,7 @@ app.use(express.static("public"));
 //setting up local db with mongo
 mongoose.connect("mongodb://localhost/scraping-project", {useNewUrlParser: true});
 
-//deployment route
+//deployment route // connects to DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
