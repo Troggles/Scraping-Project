@@ -8,8 +8,8 @@ $.getJSON("/articles", function (data) {
 
 $(document).on("click", "p", function() {
 
-    $("notes").empty();
-    let thisId = $(this).attr("data-id");
+    $("#notes").empty();
+    var thisId = $(this).attr("data-id");
 
     //ajax call for the article
     $.ajax({
@@ -33,23 +33,23 @@ $(document).on("click", "p", function() {
 });
 
 $(document).on("click", "#savenote", function() {
-		let thisId = $(this).attr("data-id");
+	var thisId = $(this).attr("data-id");
 
-		$.ajax({
-			method: "POST",
-			url: "/articles/" + thisId,
-			data: {
-				title: $("#titleinput").val(),
-				body: $("#bodyinput").val()
-			}
-		})
+	$.ajax({
+		method: "POST",
+		url: "/articles/" + thisId,
+		data: {
+			title: $("#titleinput").val(),
+			body: $("#bodyinput").val()
+		}
+	})
 
-			.then(function(data) {
-				console.log(data);
+		.then(function(data) {
+			console.log(data);
 
-				$("#notes").empty();
-			});
+			$("#notes").empty();
+		});
 
-		$("#titleinput").val("");
-		$("#bodyinput").val("");
+	$("#titleinput").val("");
+	$("#bodyinput").val("");
 });

@@ -15,13 +15,13 @@ var app = express();
 
 app.use(logger("dev"));
 
-app.use(express.urlencoded({extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //made my public folder already
 app.use(express.static("public"));
 //setting up local db with mongo
-mongoose.connect("mongodb://localhost/scraping-project", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost/Scraping-Project", {useNewUrlParser: true});
 
 //deployment route // connects to DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
